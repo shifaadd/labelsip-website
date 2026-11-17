@@ -4582,3 +4582,34 @@ align-items: start;
     }
 
 }
+
+
+/* =========================================
+   LABELSIP — FIX MOBILE SCREEN TOP SPACE
+========================================= */
+@media screen and (max-width: 768px) {
+
+    .home-screen {
+        margin-top: 90px !important;
+        margin-bottom: 20px !important;
+        min-height: 0 !important;
+        height: auto !important;
+    }
+
+    .screen,
+    .screen.inner-screen {
+        display: block !important;
+        min-height: 0 !important;
+        height: auto !important;
+        margin-top: 0 !important;
+        padding-top: 95px !important;
+        padding-bottom: 45px !important;
+    }
+
+    .screen-heading,
+    .shop-heading {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        margin-bottom: 25px !important;
+    }
+}
