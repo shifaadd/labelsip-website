@@ -4245,11 +4245,11 @@ form .button {
 
     .mobile-hero-layout {
         display: grid !important;
+grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+grid-template-rows: auto auto;
 
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        grid-template-rows: minmax(0, 1fr) auto;
-
-        align-items: center;
+align-items: start;
+        
         gap: 10px;
 
         width: 100%;
