@@ -4479,4 +4479,24 @@ form .button {
 
 }
 
+/* MOBILE HERO — MAKE THE EYEBROW VISIBLE */
 
+@media screen and (max-width: 768px) {
+
+    .mobile-hero-eyebrow {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+
+        color: #C9A66B !important;
+        font-size: 9px !important;
+        font-weight: 800 !important;
+        line-height: 1.5 !important;
+        letter-spacing: 0.5px !important;
+
+        width: 100%;
+        margin-top: 0 !important;
+        margin-bottom: 22px !important;
+    }
+
+}
