@@ -4453,3 +4453,27 @@ form .button {
 
 }
 
+
+/* =========================================
+   LABELSIP — FIX MOBILE SCREEN TOP SPACING
+   MOBILE ONLY — DESKTOP UNCHANGED
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .screen.inner-screen {
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+
+        padding-top: 88px !important;
+        padding-bottom: 45px !important;
+
+        min-height: 100svh;
+        box-sizing: border-box;
+    }
+
+    .screen.inner-screen .screen-heading {
+        margin-top: 0 !important;
+    }
+
+}
