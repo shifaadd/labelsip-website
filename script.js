@@ -184,6 +184,8 @@ function showScreen(screenId, updateHistory = true) {
     /* CLOSE MOBILE MENU */
 
     closeMobileMenu();
+	// Reset page position whenever a new screen opens
+window.scrollTo(0, 0);
 
 
     /* HIDE ALL OTHER SCREENS */
