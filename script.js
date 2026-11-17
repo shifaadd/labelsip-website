@@ -203,10 +203,11 @@ window.scrollTo(0, 0);
 
     /* SHOW SELECTED SCREEN */
 
-    targetScreen.style.display = "flex";
+	/* SHOW SELECTED SCREEN */
+
+    targetScreen.style.display = screenId === "home" ? "flex" : "block";
 
     targetScreen.style.opacity = "0";
-
 
     requestAnimationFrame(() => {
 
