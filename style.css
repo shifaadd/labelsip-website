@@ -3992,3 +3992,209 @@ form .button {
         font-size: 26px !important;
     }
 }
+
+
+/* =========================================
+   LABELSIP — PREMIUM MOBILE HERO CARD
+   MOBILE ONLY — DESKTOP 100% UNCHANGED
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* OUTER HERO CARD */
+
+    .home-screen {
+        display: grid !important;
+        grid-template-columns: 1.05fr 0.95fr;
+        grid-template-rows: minmax(0, 1fr) auto;
+
+        width: calc(100% - 28px) !important;
+        height: auto !important;
+        min-height: 0 !important;
+
+        margin: 22px auto !important;
+        padding: 22px 10px 16px !important;
+
+        align-items: center;
+        justify-content: stretch !important;
+        gap: 8px;
+
+        background: #091321 !important;
+        border: 1px solid rgba(201,166,107,0.18);
+        border-radius: 22px;
+
+        box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+        overflow: hidden;
+    }
+
+    /* RIGHT IMAGE CARD */
+
+    .hero-background {
+        position: relative !important;
+        inset: auto !important;
+
+        grid-column: 2;
+        grid-row: 1;
+
+        width: 100% !important;
+        height: 430px !important;
+
+        overflow: hidden;
+        border-radius: 24px;
+        background: #03070D;
+
+        z-index: 1;
+    }
+
+    .hero-picture {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+
+    .hero-picture .hero-image {
+        display: block;
+        width: 100%;
+        height: 100%;
+
+        object-fit: contain;
+        object-position: center;
+
+        opacity: 1;
+        animation: none;
+        transform: none;
+    }
+
+    /* REMOVE FULL-SCREEN OVERLAY */
+
+    .hero-overlay {
+        display: none !important;
+    }
+
+    /* LEFT TEXT COLUMN */
+
+    .hero-content {
+        position: relative !important;
+
+        grid-column: 1;
+        grid-row: 1;
+
+        width: 100% !important;
+        max-width: none !important;
+
+        left: auto !important;
+        right: auto !important;
+        top: auto !important;
+
+        margin: 0 !important;
+        padding: 14px 5px !important;
+
+        transform: none !important;
+        animation: none !important;
+
+        text-align: left !important;
+        z-index: 2;
+    }
+
+    .hero-eyebrow {
+        font-size: 8px !important;
+        letter-spacing: 1.2px !important;
+        line-height: 1.5;
+        margin-bottom: 18px !important;
+    }
+
+    .hero-heading {
+        font-size: clamp(21px, 6.2vw, 30px) !important;
+        line-height: 1.45 !important;
+        letter-spacing: -1px !important;
+        overflow-wrap: normal;
+    }
+
+    .hero-heading span {
+        display: block;
+    }
+
+    .hero-description {
+        max-width: 100% !important;
+        font-size: 11px !important;
+        line-height: 1.65 !important;
+        margin-top: 16px !important;
+    }
+
+    /* BUTTONS */
+
+    .hero-buttons {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: stretch !important;
+
+        width: 100% !important;
+        gap: 12px !important;
+
+        margin-top: 22px !important;
+    }
+
+    .hero-buttons .button {
+        width: 100% !important;
+        max-width: none !important;
+        min-height: 46px;
+
+        padding: 10px 5px !important;
+        font-size: 10px !important;
+        letter-spacing: 0.7px !important;
+    }
+
+    /* BOTTOM BRAND DETAILS */
+
+    .hero-bottom {
+        position: relative !important;
+
+        grid-column: 1 / -1;
+        grid-row: 2;
+
+        left: auto !important;
+        right: auto !important;
+        bottom: auto !important;
+
+        width: 100%;
+        padding: 16px 4px 4px;
+
+        display: flex;
+        justify-content: space-between;
+        gap: 8px;
+
+        font-size: 7px !important;
+        letter-spacing: 0.5px !important;
+    }
+}
+
+/* SMALLER PHONES */
+
+@media screen and (max-width: 380px) {
+
+    .home-screen {
+        grid-template-columns: 1.05fr 0.95fr;
+        padding: 15px 7px 12px !important;
+        gap: 5px;
+    }
+
+    .hero-background {
+        height: 390px !important;
+    }
+
+    .hero-heading {
+        font-size: 21px !important;
+    }
+
+    .hero-eyebrow {
+        font-size: 7px !important;
+    }
+
+    .hero-description {
+        font-size: 10px !important;
+    }
+
+    .hero-buttons .button {
+        font-size: 9px !important;
+    }
+}
