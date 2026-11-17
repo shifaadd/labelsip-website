@@ -3914,3 +3914,81 @@ form .button {
     }
 
 }
+
+
+/* =========================================
+   LABELSIP — FINAL MOBILE LEFT POSITION
+   MOBILE ONLY — DESKTOP UNCHANGED
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    .home-screen {
+        position: relative !important;
+        display: block !important;
+        padding: 0 !important;
+        overflow: hidden !important;
+    }
+
+    .hero-content {
+        position: absolute !important;
+
+        left: 0 !important;
+        right: auto !important;
+        top: 50% !important;
+
+        transform: translateY(-50%) !important;
+        animation: none !important;
+
+        width: 57% !important;
+        max-width: 440px !important;
+
+        margin: 0 !important;
+        padding: 0 0 0 5% !important;
+
+        text-align: left !important;
+        box-sizing: border-box !important;
+        z-index: 3 !important;
+    }
+
+    .hero-eyebrow,
+    .hero-heading,
+    .hero-description {
+        text-align: left !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .hero-heading {
+        width: 100% !important;
+        max-width: 100% !important;
+        font-size: clamp(26px, 7vw, 36px) !important;
+        letter-spacing: -1.5px !important;
+        line-height: 1.15 !important;
+    }
+
+    .hero-description {
+        max-width: 100% !important;
+    }
+
+    .hero-buttons {
+        align-items: flex-start !important;
+        width: 100% !important;
+    }
+
+    .hero-buttons .button {
+        max-width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 380px) {
+
+    .hero-content {
+        width: 59% !important;
+        padding-left: 5% !important;
+    }
+
+    .hero-heading {
+        font-size: 26px !important;
+    }
+}
