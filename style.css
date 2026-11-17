@@ -4477,3 +4477,26 @@ form .button {
     }
 
 }
+
+
+/* FINAL FIX — MOBILE SHOP CONTENT POSITION */
+
+@media (max-width: 768px) {
+
+    #shop {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start !important;
+        align-items: stretch !important;
+
+        min-height: 100vh;
+        padding-top: 95px !important;
+        padding-bottom: 40px !important;
+    }
+
+    #shop .screen-heading {
+        margin-top: 0 !important;
+        margin-bottom: 30px !important;
+    }
+
+}
