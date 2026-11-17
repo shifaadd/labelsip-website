@@ -28,6 +28,8 @@ const loader = document.getElementById(
     "page-loader"
 );
 
+const siteFooter = document.querySelector(".main-footer");
+
 
 /* =========================================
    WEBSITE STATE
@@ -217,6 +219,16 @@ window.scrollTo(0, 0);
 
     currentScreen = screenId;
 
+	/* Keep the mobile homepage as a single hero screen. */
+
+if (siteFooter) {
+    const isMobileHome =
+        screenId === "home" &&
+        window.matchMedia("(max-width: 768px)").matches;
+
+    siteFooter.style.display = isMobileHome ? "none" : "";
+}
+
 
     /* UPDATE NAVIGATION HIGHLIGHT */
 
@@ -347,6 +359,8 @@ function openMobileMenu() {
 
     mobileMenuButton.setAttribute("aria-expanded", "true");
 
+	mobileMenuButton.setAttribute("aria-label", "Close navigation");
+
 }
 
 
@@ -363,6 +377,8 @@ function closeMobileMenu() {
     mobileMenuButton.classList.remove("active");
 
     mobileMenuButton.setAttribute("aria-expanded", "false");
+
+	mobileMenuButton.setAttribute("aria-label", "Open navigation");
 
 }
 
@@ -1244,6 +1260,34 @@ showMessage("Your branding details are saved successfully!");
     });
 }
 
+
+/* =========================================
+   CUSTOMER LOGIN AND REGISTRATION
+========================================= */
+
+const customerLoginForm = document.getElementById("login-form");
+
+if (customerLoginForm) {
+    customerLoginForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        showMessage(
+            "Customer login will be available after secure account setup."
+        );
+    });
+}
+
+const customerRegisterForm = document.getElementById("register-form");
+
+if (customerRegisterForm) {
+    customerRegisterForm.addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        showMessage(
+            "Account creation will be available after secure account setup."
+        );
+    });
+}
 
 
 /* =========================================
