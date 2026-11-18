@@ -1374,107 +1374,132 @@ if (contactForm) {
 
 
 
-
-
-
-
-
-
-
 /* =========================================
-   PART 8: CHECKOUT FORM
+   PART 8: CHECKOUT FORM → WHATSAPP
 ========================================= */
 
 const checkoutForm = document.getElementById("checkout-form");
 
-
 if (checkoutForm) {
-
     checkoutForm.addEventListener("submit", function(event) {
-
         event.preventDefault();
 
-
         if (cart.length === 0) {
-
             showMessage("Please add products to your cart.");
-
             return;
-
         }
 
-
-        const businessName = document.getElementById(
-            "checkout-business"
-        ).value.trim();
-
-
-        const customerName = document.getElementById(
-            "checkout-customer"
-        ).value.trim();
-
-
-        const phone = document.getElementById(
-            "checkout-phone"
-        ).value.trim();
-
-
-        const email = document.getElementById(
-            "checkout-email"
-        ).value.trim();
-
-
-        const address = document.getElementById(
-            "checkout-address"
-        ).value.trim();
-
-
-        const notes = document.getElementById(
-            "checkout-notes"
-        ).value.trim();
-
+        const businessName = document.getElementById("checkout-business").value.trim();
+        const customerName = document.getElementById("checkout-customer").value.trim();
+        const phone = document.getElementById("checkout-phone").value.trim();
+        const email = document.getElementById("checkout-email").value.trim();
+        const address = document.getElementById("checkout-address").value.trim();
+        const notes = document.getElementById("checkout-notes").value.trim();
 
         if (!businessName || !customerName || !phone || !address) {
-
             showMessage("Please complete all required details.");
-
             return;
-
         }
 
-
-        const checkoutDetails = {
-
-            businessName: businessName,
-
-            customerName: customerName,
-
-            phone: phone,
-
-            email: email,
-
-            address: address,
-
-            notes: notes,
-
-            products: cart
-
-        };
-
-
-        console.log(
-            "Checkout demonstration:",
-            checkoutDetails
+        // Calculate order subtotal
+        const subtotal = cart.reduce(
+            (sum, item) =>
+                sum + getBottlePrice(item) * Number(item.quantity || 0),
+            0
         );
 
+        // Delivery details
+        const deliverySelect = document.getElementById("delivery-distance");
+        const deliveryValue = deliverySelect?.value;
 
-        showMessage(
-            "Details validated. Real order submission will be enabled after backend connection."
-        );
+        if (!deliveryValue) {
+            showMessage("Please select your delivery distance.");
+            return;
+        }
 
+        const deliveryCharge = Number(deliveryValue);
+        const deliveryLabel =
+            deliverySelect.options[deliverySelect.selectedIndex].text;
+
+        const grandTotal = subtotal + deliveryCharge;
+
+        // Build WhatsApp order message
+        let message = `*LABELSIP — NEW ORDER*\n`;
+        message += `━━━━━━━━━━━━━━━━━━━━\n\n`;
+
+        // CUSTOMER & CHECKOUT DETAILS
+        message += `*CUSTOMER & CHECKOUT DETAILS*\n`;
+        message += `Business Name: ${businessName}\n`;
+        message += `Contact Person: ${customerName}\n`;
+        message += `Phone: ${phone}\n`;
+
+        if (email) {
+            message += `Email: ${email}\n`;
+        }
+
+        message += `Delivery Address: ${address}\n\n`;
+
+        // ORDER ITEMS
+        message += `*ORDER ITEMS*\n`;
+
+        cart.forEach(item => {
+            const unitPrice = getBottlePrice(item);
+            const lineTotal = unitPrice * Number(item.quantity);
+
+            message += `• ${item.name}\n`;
+            message += `  Quantity: ${item.quantity}\n`;
+            message += `  Unit Price: ${money(unitPrice)}\n`;
+            message += `  Amount: ${money(lineTotal)}\n`;
+        });
+
+        message += `\n*ORDER SUMMARY*\n`;
+        message += `Subtotal: ${money(subtotal)}\n`;
+        message += `Delivery: ${deliveryLabel}\n`;
+        message += `Delivery Charge: ${money(deliveryCharge)}\n`;
+        message += `*TOTAL: ${money(grandTotal)}*\n\n`;
+
+        // CUSTOM BRANDING — ONLY IF SELECTED
+        const brandedItems = cart.filter(item => item.branding === "yes");
+
+        if (brandedItems.length > 0) {
+            message += `*CUSTOM BRANDING DETAILS*\n`;
+
+            brandedItems.forEach(item => {
+                const details = item.brandingDetails || {};
+
+                message += `\nBottle: ${item.name}\n`;
+                message += `Branding: Yes\n`;
+                message += `Business Name: ${details.businessName || businessName}\n`;
+                message += `Label Style: ${details.labelStyle || "Not specified"}\n`;
+                message += `Instructions: ${details.notes || "None"}\n`;
+                message += `Logo: ${details.logoFileName || "Not uploaded"}\n`;
+            });
+
+            message += `\n`;
+        }
+
+        // ORDER NOTES
+        if (notes) {
+            message += `*CUSTOMER ORDER NOTES*\n${notes}\n\n`;
+        }
+
+        message += `━━━━━━━━━━━━━━━━━━━━\n`;
+        message += `Order received through LabelSip website`;
+
+        // Owner's WhatsApp number
+        const ownerWhatsApp = "917996866953";
+
+        // Open WhatsApp with the complete order
+        const whatsappURL =
+            `https://wa.me/${ownerWhatsApp}?text=${encodeURIComponent(message)}`;
+
+        window.location.href = whatsappURL;
     });
-
 }
+
+
+
+
 
 
 /* =========================================
