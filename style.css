@@ -4277,3 +4277,60 @@ form .button {
     .mobile-hero-heading { font-size: clamp(22px, 7.2vw, 26px); }
     .mobile-hero-description { font-size: 12px; }
 }
+
+
+
+
+
+/* =========================================
+   LABELSIP — MOBILE HOMEPAGE HERO SIZE UPDATE
+   Only the phone homepage is modified
+========================================= */
+
+@media screen and (max-width: 768px) {
+
+    /* Make the hero box fill the phone screen */
+    .home-screen > .mobile-hero-layout {
+        min-height: calc(100svh - var(--device-header) - 40px);
+        grid-template-rows: minmax(0, 1fr) auto;
+    }
+
+    /* Bigger hero text */
+    .mobile-hero-heading {
+        font-size: clamp(24px, 7.2vw, 42px) !important;
+        line-height: 1.22 !important;
+        letter-spacing: -1px !important;
+        gap: 12px !important;
+    }
+
+    /* Bigger supporting description */
+    .mobile-hero-description {
+        font-size: clamp(13px, 3.6vw, 16px) !important;
+        line-height: 1.65 !important;
+    }
+
+    /* Taller bottle image */
+    .mobile-hero-image-box {
+        aspect-ratio: 1.65 / 3 !important;
+    }
+
+    /* Better balance inside the taller box */
+    .mobile-hero-footer {
+        padding-top: 20px !important;
+    }
+}
+
+/* Small phones: preserve the stacked layout */
+@media screen and (max-width: 359px) {
+    .home-screen > .mobile-hero-layout {
+        min-height: auto;
+    }
+
+    .mobile-hero-heading {
+        font-size: 26px !important;
+    }
+
+    .mobile-hero-image-box {
+        aspect-ratio: 1.65 / 3 !important;
+    }
+}
