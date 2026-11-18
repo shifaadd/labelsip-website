@@ -4334,3 +4334,159 @@ form .button {
         aspect-ratio: 1.65 / 3 !important;
     }
 }
+
+
+/* ==========================================
+   LABELSIP — CINEMATIC PHONE HOMEPAGE
+   Mobile only | Laptop & tablet untouched
+========================================== */
+
+@media screen and (max-width: 768px) {
+
+    /* Homepage canvas */
+    .home-screen {
+        width: 100% !important;
+        margin: var(--device-header) auto 0 !important;
+        padding: 0 !important;
+        min-height: 0 !important;
+        height: auto !important;
+        background: #020b18 !important;
+        overflow: visible !important;
+    }
+
+    /* Cinematic full-screen hero */
+    .home-screen > .mobile-hero-layout {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        min-height: calc(100svh - var(--device-header)) !important;
+        height: calc(100svh - var(--device-header)) !important;
+        box-sizing: border-box !important;
+        padding: 28px 5% 78px !important;
+        border: none !important;
+        border-radius: 0 !important;
+        overflow: hidden !important;
+
+        background-color: #020b18 !important;
+        background-image:
+            linear-gradient(
+                90deg,
+                rgba(2, 10, 23, .16) 0%,
+                rgba(2, 10, 23, .02) 60%,
+                rgba(2, 10, 23, 0) 100%
+            ),
+            url("images/mobile-cinematic-bg.png") !important;
+        background-repeat: no-repeat !important;
+        background-size: auto 100% !important;
+        background-position: right center !important;
+    }
+
+    /* Remove old bottle box */
+    .mobile-hero-image-box {
+        display: none !important;
+    }
+
+    /* Text layer */
+    .mobile-hero-text {
+        position: relative !important;
+        z-index: 2 !important;
+        width: 62% !important;
+        max-width: 580px !important;
+        text-align: left !important;
+    }
+
+    .mobile-hero-eyebrow {
+        font-size: clamp(12px, 3.4vw, 16px) !important;
+        line-height: 1.5 !important;
+        margin-bottom: 22px !important;
+        letter-spacing: .6px !important;
+    }
+
+    .mobile-hero-heading {
+        font-size: clamp(27px, 7.2vw, 42px) !important;
+        line-height: 1.16 !important;
+        gap: 9px !important;
+        letter-spacing: -1px !important;
+    }
+
+    .mobile-hero-description {
+        font-size: clamp(13px, 3.7vw, 17px) !important;
+        line-height: 1.55 !important;
+        margin-top: 20px !important;
+        max-width: 95% !important;
+    }
+
+    /* Buttons */
+    .mobile-hero-buttons {
+        width: 100% !important;
+        gap: 12px !important;
+        margin-top: 24px !important;
+    }
+
+    .mobile-hero-buttons .button {
+        min-height: 48px !important;
+        font-size: clamp(12px, 3.4vw, 15px) !important;
+        border-radius: 12px !important;
+    }
+
+    /* Real footer text */
+    .mobile-hero-footer {
+        position: absolute !important;
+        z-index: 3 !important;
+        left: 5% !important;
+        right: 5% !important;
+        bottom: 18px !important;
+        padding: 0 !important;
+        font-size: clamp(8px, 2.5vw, 11px) !important;
+        letter-spacing: .8px !important;
+    }
+
+    /* Hide original desktop hero/footer on phones */
+    .home-screen > .hero-background,
+    .home-screen > .hero-content,
+    .home-screen > .hero-bottom {
+        display: none !important;
+    }
+}
+
+/* Small phones */
+@media screen and (max-width: 380px) {
+
+    .home-screen > .mobile-hero-layout {
+        padding: 22px 4% 70px !important;
+    }
+
+    .mobile-hero-text {
+        width: 65% !important;
+    }
+
+    .mobile-hero-heading {
+        font-size: clamp(24px, 7.3vw, 30px) !important;
+        gap: 7px !important;
+    }
+
+    .mobile-hero-description {
+        font-size: 12px !important;
+    }
+
+    .mobile-hero-buttons .button {
+        min-height: 44px !important;
+    }
+}
+
+/* Very narrow phones */
+@media screen and (max-width: 359px) {
+
+    .home-screen > .mobile-hero-layout {
+        grid-template-columns: none !important;
+        grid-template-rows: none !important;
+    }
+
+    .mobile-hero-text {
+        width: 68% !important;
+    }
+
+    .mobile-hero-heading {
+        font-size: 23px !important;
+    }
+}
