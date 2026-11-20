@@ -1609,6 +1609,12 @@ message += `\n`;
         const whatsappURL =
             `https://wa.me/${ownerWhatsApp}?text=${encodeURIComponent(message)}`;
 
+                // CLEAR CART AFTER SENDING ORDER TO WHATSAPP
+        cart = [];
+        saveCart();
+        updateCartCount();
+        renderCart();
+
         window.location.href = whatsappURL;
     });
 }
